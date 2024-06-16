@@ -1,2 +1,2 @@
 # rs-nodejs-aws-backend
-backend for nodejs-aws app
+backend for: https://github.com/olegkoleda/nodejs-aws-shop-react
