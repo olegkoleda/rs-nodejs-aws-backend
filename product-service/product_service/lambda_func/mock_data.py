@@ -1,6 +1,5 @@
 products = [
-    {"id": 1, "name": "Product 1"},
-    {"id": 2, "name": "Product 2"},
-    {"id": 3, "name": "Product 3"},
-    {"id": 4, "name": "Product 4"},
+    {"id": 1, "description": "Good tea", "price": 24, "title": "Chun Mee"},
+    {"id": 2, "description": "Good tea", "price": 23, "title": "Chun Lu"},
+    {"id": 3, "description": "Good tea", "price": 26, "title": "Bi Luo Chun"},
 ]
