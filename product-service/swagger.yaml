@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  description: API for retrieving product information
+  version: 1.0.0
+servers:
+  - url: https://gz1zgw55al.execute-api.eu-west-1.amazonaws.com/prod
+    description: Production server
+
+tags:
+  - name: products
+    description: Endpoints to get a list of products or exact product
+
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      summary: Get all products
+      operationId: getProducts
+      responses:
+        '200':
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        '500':
+          description: Internal server error
+
+  /products/{id}:
+    get:
+      tags:
+        - products
+      summary: Get a product by ID
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found
+        '500':
+          description: Internal server error
+
+components:
+   schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        description:
+          type: string
+          example: "Good tea"
+        price:
+          type: number
+          example: 24
+        title:
+          type: string
+          example: "Chun Mee"
+      required:
+        - id
+        - description
+        - price
+        - title
